@@ -30,7 +30,7 @@ cron.schedule('23 59 * * *', function() {
                 return m.split(".tgz")[0]
             });
             for (const date of mapFiles) {
-            if (moment(date).isBefore(moment().subtract(2,'minutes').format("YYYY-MM-DDTHH:mm:ss"))){
+            if (moment(date).isBefore(moment().subtract(2,'Days').format("YYYY-MM-DDTHH:mm:ss"))){
                     if (fsExtra.existsSync(`./backup/${date}.tgz`)) {
                         fsExtra.removeSync(`./backup/${date}.tgz`);
                     }
